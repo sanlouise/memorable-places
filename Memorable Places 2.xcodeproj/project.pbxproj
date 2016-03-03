@@ -13,6 +13,7 @@
 		B6CFEC861C872EBD00BA1D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6CFEC851C872EBD00BA1D49 /* Assets.xcassets */; };
 		B6CFEC891C872EBD00BA1D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CFEC871C872EBD00BA1D49 /* LaunchScreen.storyboard */; };
 		B6CFEC911C8731B400BA1D49 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFEC901C8731B400BA1D49 /* TableViewController.swift */; };
+		B6CFEC931C8733E600BA1D49 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CFEC921C8733E600BA1D49 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B6CFEC881C872EBD00BA1D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6CFEC8A1C872EBD00BA1D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6CFEC901C8731B400BA1D49 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B6CFEC921C8733E600BA1D49 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CFEC931C8733E600BA1D49 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 		B6CFEC721C872EBD00BA1D49 = {
 			isa = PBXGroup;
 			children = (
+				B6CFEC921C8733E600BA1D49 /* CoreLocation.framework */,
 				B6CFEC7D1C872EBD00BA1D49 /* Memorable Places 2 */,
 				B6CFEC7C1C872EBD00BA1D49 /* Products */,
 			);
