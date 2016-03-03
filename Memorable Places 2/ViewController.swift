@@ -20,9 +20,52 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
         
+        // If there is no active place as defined in the TableViewController
+        
+        if activePlace == -1 {
+            
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+            
+        } else {
+            
+            
+            // Instead of retrieving user's location, go to the address the user has tapped on.
+            // We need to convert latitude/longitude from a string to a Double for precision.
+            
+            let latitude = NSString(string: places[activePlace]["lat"]!).doubleValue
+            let longitude = NSString(string: places[activePlace]["lon"]!).doubleValue
+            
+            // To center on user's special place
+            
+            let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+            
+            let latDelta:CLLocationDegrees = 0.01
+            
+            let lonDelta:CLLocationDegrees = 0.01
+            
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, span)
+            
+            self.map.setRegion(region, animated: true)
+            
+            // Allows user to add an annotation to the map.
+            
+            let annotation = MKPointAnnotation()
+            
+            annotation.coordinate = coordinate
+            
+            annotation.title = places[activePlace]["name"]
+            
+            self.map.addAnnotation(annotation)
+            
+            
+            
+        }
+    
+
         // So users can add their own pins
         
         let uilpgr = UILongPressGestureRecognizer(target: self, action: "action:")
