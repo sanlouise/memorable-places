@@ -20,7 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        
+
         // If there is no active place as defined in the TableViewController
         
         if activePlace == -1 {
@@ -33,17 +33,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // We need to convert latitude/longitude from a string to a Double for precision.
             let latitude = NSString(string: places[activePlace]["lat"]!).doubleValue
             let longitude = NSString(string: places[activePlace]["lon"]!).doubleValue
-            
             // To center on user's special place
-            
             let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
             let latDelta:CLLocationDegrees = 0.01
             let lonDelta:CLLocationDegrees = 0.01
             let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
             let region:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, span)
-            
-            self.map.setRegion(region, animated: true)
-            
             // Allows user to add an annotation to the map.
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
@@ -56,7 +51,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let uilpgr = UILongPressGestureRecognizer(target: self, action: "action:")
         uilpgr.minimumPressDuration = 1.5
         map.addGestureRecognizer(uilpgr)
-        
     }
     
     // This action happens when someone presses long enough.
@@ -74,7 +68,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 var title = ""
                 
                 // Checks if there is a placemark.
-                
                 if (error == nil) {
                     if let p = placemarks?[0] {
                         // Finds house number and street

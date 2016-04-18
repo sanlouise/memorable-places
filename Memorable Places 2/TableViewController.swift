@@ -18,7 +18,6 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
       // Create an example place to show when no places have been added yet. We would have put places.count == 0, like usual, but we cannot create an empty array outside of the TableViewController. We need to add some data in there. Therefore, it should be bigger than 1 which equals the example array that we have made up already.
         
         if places.count == 1 {
@@ -44,8 +43,7 @@ class TableViewController: UITableViewController {
 
     }
     
-    // Type this code after linking (ctrl dragging) table cell to map view controller
-    
+    // Type this code after linking table cell to map view controller
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         activePlace = indexPath.row
         return indexPath
@@ -54,7 +52,6 @@ class TableViewController: UITableViewController {
     // This code will reset the user's location to -1, which is the actual user's location after he or she has already clicked on a favorite place. Without this code, the map will automatically center on the location the user viewed last. This code is invoked after someone has pressed the "add" or "+" button. Manually set the segue's ID via storyboard.
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == "newPlace" {
             activePlace = -1
         }
@@ -63,6 +60,5 @@ class TableViewController: UITableViewController {
     // Add this to ensure the table view is updated after someone pinned a place! This happend right before the view appears.
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
-        
     }
 }
